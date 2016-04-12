@@ -8,7 +8,7 @@ app.Reservation = Backbone.Model.extend({
     // flight
     row: 1,
     column: "A",
-    seat-id:"1-A" // do this in the parse.
+    seatId:"1-A" // do this in the parse.
   },
   urlRoot: "/reservations"
 })

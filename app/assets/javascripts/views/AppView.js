@@ -7,7 +7,7 @@ app.AppView = Backbone.View.extend({
 
     var searchFlightTemplate = $('#searchFlightTemplate').html();
     this.$el.html(searchFlightTemplate);
-  
+
     // var flightView = new app.FlightView();
     // flightView.render();
   }
