@@ -18,8 +18,8 @@ app.Plane = Backbone.Model.extend({
   //   return response;
   // }
   // flights: (new app.Flights()).fetch({plane_id: self.id})
-  flights: function (callback) {
-    var flights = new app.Flights();
-    flights.fetch({plane_id: self.id}).done(callback); 
-  }
+  // flights: function (callback) {
+  //   var flights = new app.Flights();
+  //   flights.fetch({plane_id: self.id}).done(callback);
+  // }
 });

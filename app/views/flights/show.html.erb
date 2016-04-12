@@ -15,5 +15,10 @@
   <%= @flight.date %>
 </p>
 
+<p>
+  <strong>Plane:</strong>
+  <%= @flight.plane.name if @flight.plane %>
+</p>
+
 <%= link_to 'Edit', edit_flight_path(@flight) %> |
 <%= link_to 'Back', flights_path %>
