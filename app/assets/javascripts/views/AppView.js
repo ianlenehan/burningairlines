@@ -1,12 +1,13 @@
 var app = app || {};
 
-app.Appview = Backbone.View.extend({
+app.AppView = Backbone.View.extend({
   el: '#main',
 
   render: function () {
-    var searchFlight = $('#searchFlight').html();
-    this.$el.html(searchFlight);
 
+    var searchFlightTemplate = $('#searchFlightTemplate').html();
+    this.$el.html(searchFlightTemplate);
+  
     // var flightView = new app.FlightView();
     // flightView.render();
   }
