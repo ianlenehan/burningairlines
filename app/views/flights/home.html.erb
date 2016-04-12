@@ -15,7 +15,29 @@
   </script>
 
   <script id="flightViewTemplate" type="text/template">
+
     <button></button>
+
+
+    <dl>
+      <dt>origin:</dt>
+      <dd><%= origin %></dd>
+
+      <dt>destination:</dt>
+      <dd><%= destination %></dd>
+
+      <dt>date:</dt>
+      <dd><%= date %></dd>
+
+      <dt>plane:</dt>
+      <dd id="planeDescription"></dd>
+    </dl>
+
+    <div id="flightSeating"></div>
+  </script>
+
+  <script id="planeDescriptionTemplate" type="text/template">
+    <%= name %> which has <%= rows %> rows and <%= columns %> columns of seats.
   </script>
 
 </div>
