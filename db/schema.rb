@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160412054414) do
   end
 
   create_table "planes", force: :cascade do |t|
+    t.integer  "plane_id"
     t.string   "name"
     t.integer  "rows"
     t.integer  "columns"
@@ -41,10 +42,10 @@ ActiveRecord::Schema.define(version: 20160412054414) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "password"
+    t.string   "password_digest"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
