@@ -12,5 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require underscore.js
+//= require backbone.js
+//= require ./models
+//= require ./collections
+//= require ./views
+//= require ./routers
 //= require_tree .
