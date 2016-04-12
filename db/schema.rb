@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20160412054414) do
   end
 
   create_table "planes", force: :cascade do |t|
-    t.integer  "plane_id"
     t.string   "name"
     t.integer  "rows"
     t.integer  "columns"
