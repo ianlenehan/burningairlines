@@ -20,6 +20,10 @@
     <%= f.number_field :flight_id %>
   </div>
   <div class="field">
+    <%= f.label :flight_id %><br>
+    <%= f.collection_select(:flight, :plane_id, Plane.all, :flight_id, :name, prompt: true) %>
+  </div>
+  <div class="field">
     <%= f.label :row %><br>
     <%= f.number_field :row %>
   </div>
