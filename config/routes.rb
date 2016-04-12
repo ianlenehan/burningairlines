@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => 'search#home'
+  root :to => 'flights#home'
 
   resources :users
   resources :reservations
