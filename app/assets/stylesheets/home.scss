@@ -108,6 +108,14 @@ button#search_save, button#search_cancel{
   border-radius: 3px;
 }
 
+#flights_list {
+  margin-top: 20px;
+  opacity: 0;
+}
+
+th td {
+  min-width: 50px;
+  padding: 5px;
 /////////////////////////////////////////////////////////////////
 //single flight view stuff
 
