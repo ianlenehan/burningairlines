@@ -1,40 +1,39 @@
   <div id="main"></div>
 
   <script id="searchFlightTemplate" type="text/template">
+    <h2>Search Flights</h2>
+    <ul class="searchFlight">
+      <li><b>Origin:  </b><input type="text" placeholder="from" id="origin"></li>
+      <li><b>Destination:  </b><input type="text" placeholder="to" id="destination"></li>
+      <button id="search_cancel">Cancel</button>
+      <button id="search_save">Search</button>
+    </ul>
 
-    <label>Origin: </label><input type="text" placeholder="from" id="origin">
-    <label>Destination: </label><input type="text" placeholder="to" id="destination">
-    <button id="search_cancel">Cancel</button>
-    <button id="search_save">Search</button>
-
-
-    <table id="flights_list">
-      <tr>
-        <th>Date</th>
-        <th>Flight</th>
-        <th>From - To</th>
-        <th>Plane</th>
-      </tr>
-      <tr class="flights_list_data">
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
+    <div id="flights_list">
+      <ul class="flights_list_info">
+        <li>Date</li>
+        <li>Flight</li>
+        <li>From - To</li>
+        <li>Plane</li>
+      </ul>
+      <ul class="flights_list_data">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
   </script>
 
   <script id="flightViewTemplate" type="text/template">
-
-    <ul>
-      <li><b>Origin: </b><%%= origin %> </li>
-      <li><b>Destination: </b><%%= destination %></li>
-      <li><b>Date: </b><%%= date %></li>
-      <li><b>Plane: </b> <span id="planeDescription"></li>
-    </ul>
-
-    <div id="flightSeating"></div>
-
+      <h2>Search Results</h2>
+      <ul>
+        <li><b>Origin: </b><%%= origin %> </li>
+        <li><b>Destination: </b><%%= destination %></li>
+        <li><b>Date: </b><%%= date %></li>
+        <li><b>Plane: </b> <span id="planeDescription"></li>
+      </ul>
+      <div id="flightSeating"></div>
   </script>
 
   <script id="planeDescriptionTemplate" type="text/template">

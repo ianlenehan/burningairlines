@@ -1,8 +1,21 @@
+*{
+  font-family: 'Oxygen', sans-serif;
+}
+
+.fontWeight-light{
+  font-weight: 200;
+}
+
 .container {
   margin: 50px auto;
   background: white;
 }
 
+.nav a {
+  &:hover {
+  text-decoration: none;
+  }
+}
 
 .navbar-header {
   width: 30%;
@@ -17,19 +30,34 @@
   font-weight: bold;
 }
 
-h3 {
+nav h3 {
   margin-left: 6%;
   font-weight: bold;
+  color: rgba(33, 94, 104, 0.54);
 }
 
 
-#main {
-  background-color: gainsboro;
-  padding: 10%;
+#content {
+  background-color: rgba(33, 94, 104, 0.24);
+  padding: 5%;
 }
 
 #buttons{
   margin-top: 5px;
+}
+
+#main{
+  width: 60%;
+  margin: 0 auto;
+  padding: 5%;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+#main h2{
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 5%;
 }
 
 button#backToSearch{
@@ -40,6 +68,36 @@ button#backToSearch{
 
 ul li{
   list-style: none;
-  font-size: 1.2em;
+  font-size: 1.4em;
   line-height: 1.2;
+  padding-left: 0;
+  font-weight: 200;
+}
+
+ul {
+  padding-left: 0;
+}
+
+label {
+  display: block;
+}
+.searchFlight{
+  margin: 0 auto;
+  width: 200px;
+}
+
+ul.searchFlight li{
+  margin-bottom: 10px;
+  width: 100px;
+}
+
+.flights_list_info, .flights_list_data{
+  width: 200px;
+  margin: 40px auto;
+}
+
+
+button#search_save, button#search_cancel{
+  width: 96px;
+  border-radius: 3px;
 }
