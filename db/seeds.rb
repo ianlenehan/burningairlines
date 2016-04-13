@@ -27,11 +27,6 @@ dates = ["2016-04-18T12:00:00.000Z",
   "2016-04-22T12:00:00.000Z"]
 
 Flight.destroy_all
-<<<<<<< HEAD
-f1 = Flight.create :origin => 'SYD', :destination => 'JFK', :date => 2016/04/13, :plane_id => r1.id
-f2 = Flight.create :origin => 'JFK', :destination => 'SYD', :date => 2016/04/14, :plane_id => r2.id
-f3 = Flight.create :origin => 'BRI', :destination => 'MEL', :date => 2016/04/15, :plane_id => r3.id
-=======
 
 (1..20).to_a.each do |i|
   blah = locations.sample(2)
@@ -63,4 +58,3 @@ reserved_seats.each do |seat|
   seat[:user_id] = User.all.pluck(:id)
   Reservation.create seat
 end
->>>>>>> 7e6ed33fe2555b25b483008b2192575b989aaabd
