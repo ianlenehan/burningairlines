@@ -116,4 +116,15 @@ button#search_save, button#search_cancel{
 th td {
   min-width: 50px;
   padding: 5px;
+/////////////////////////////////////////////////////////////////
+//single flight view stuff
+
+#flightSeating {
+  width: 100%;
+  min-height: 100px;
+  border: 1px solid black;
+}
+
+.seat {
+  display: inline-block;
 }
