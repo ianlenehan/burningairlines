@@ -15,12 +15,12 @@ app.SearchFlightView = Backbone.View.extend({
     var flights = new app.Flights();
 
     var view = this;
-    flights.fetch().done(function () {
+    flights.fetch({data: {origin: origin, destination: destination}}).done(function () {
 
       for (var i = 0; i < flights.length; i++) {
         var $origin = view.$el.find('#flight_origin');
-        var returned_origin = flights.at( 0 ).get( "origin" );
-        $origin.html(flights.at( 0 ).get( "origin" ));
+        var returned_origin = flights.at( i ).get( "origin" );
+        $origin.html(flights.at( i ).get( "origin" ));
         console.log(returned_origin);
       }
     });
