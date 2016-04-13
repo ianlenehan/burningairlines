@@ -1,6 +1,24 @@
 .container {
-  margin: 0 auto;
-  width: 80%;
+  margin: 50px auto;
   background: white;
-  border: 1px solid grey;
+}
+
+
+.navbar-header {
+  width: 30%;
+  height: 100%;
+}
+
+h3 {
+  margin-left: 3%;
+}
+
+
+#main {
+  background-color: gainsboro;
+  padding: 10%;
+}
+
+#buttons{
+  margin-top: 5px;
 }
