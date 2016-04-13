@@ -16,6 +16,8 @@ app.AppRouter = Backbone.Router.extend({
     flight.fetch().done( function () {
       var flightView = new app.FlightView({model: flight});
       flightView.render();
+    }).error( function () {
+      console.log("wtf")
     });
   }
 });
