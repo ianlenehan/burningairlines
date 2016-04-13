@@ -18,8 +18,8 @@ app.SearchFlightView = Backbone.View.extend({
   },
 
   searchFlights: function () {
-    var origin = this.$el.find('#origin').val();
-    var destination = this.$el.find('#destination').val();
+    var origin = this.$el.find('#origin').val().toUpperCase();
+    var destination = this.$el.find('#destination').val().toUpperCase();
 
     var flights = new app.Flights();
 
