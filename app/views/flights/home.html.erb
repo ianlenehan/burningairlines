@@ -13,23 +13,22 @@
   </script>
 
   <script type="text/template">
-
-  <table id="flights_list">
-    <thead>
-    <tr>
-      <th>Date</th>
-      <th>Flight</th>
-      <th>From - To</th>
-      <th>Plane</th>
-    </tr>
-    </thead>
-    <tr class="flights_list_data">
-      <td><%%= flight.origin %></td>
-      <td><%%= flight.destination %></td>
-      <td><%%= flight.date %></td>
-      <td><%%= flight.plane.name if flight.plane %></td>
-    </tr>
-  </table>
+    <table id="flights_list">
+      <thead>
+      <tr>
+        <th>Date</th>
+        <th>Flight</th>
+        <th>From - To</th>
+        <th>Plane</th>
+      </tr>
+      </thead>
+      <tr class="flights_list_data">
+        <td><%%= flight.origin %></td>
+        <td><%%= flight.destination %></td>
+        <td><%%= flight.date %></td>
+        <td><%%= flight.plane.name if flight.plane %></td>
+      </tr>
+    </table>
   </script>
 
   <script id="flightViewTemplate" type="text/template">
