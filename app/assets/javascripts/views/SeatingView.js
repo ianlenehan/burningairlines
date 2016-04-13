@@ -5,13 +5,23 @@ app.SeatingView = Backbone.View.extend({
 
   el: '#flightSeating',
 
+  events: {
+    'click .seat' : 'seatClick'
+  },
+
   render: function(){
     app.reservations = new app.Reservations();
-    app.reservations.fetch();
+    app.reservations.fetch().done( function () {
+      $('.seat').removeClass("pending");
+    });
+
+    setInterval(function () {
+      app.reservations.fetch();
+    })
+
     this.listenTo( app.reservations, 'add', this.reservationAddEvent);
     this.listenTo( app.reservations, 'remove', this.reservationRemoveEvent);
     this.listenTo( app.reservations, 'change', this.reservationChangeEvent);
-
 
     var rows = app.plane.get('rows');
     var columns = app.plane.get('columns');
@@ -28,6 +38,7 @@ app.SeatingView = Backbone.View.extend({
         var seatID = (i+1)+app.alphabet[j];
         var seat = $('<div/>')
           .addClass("seat")
+          .addClass("pending")
           .attr('id', seatID)
           .css({width: seatWidth+"px",
             margin: seatMargin+"px",
@@ -43,8 +54,43 @@ app.SeatingView = Backbone.View.extend({
     if (app.flight.get('id') != res.get('flight_id')){
       return;
     }
-    res.set('seatID' , res.get('row') + res.get('column'));
+    var seatID = res.get('row') + res.get('column');
+    $('#'+seatID).addClass('taken') //todo make it an if with session user_id.
+  },
 
-    console.log(res.get('seatID'));
+  reservationRemoveEvent: function (res) {
+    if (app.flight.get('id') != res.get('flight_id')){
+      return;
+    }
+    var seatID = res.get('row') + res.get('column');
+    $('#'+seatID).removeClass('taken');
+  },
+
+  reservationUpdateEvent: function (res) {
+    if (app.flight.get('id') != res.get('flight_id')){
+      return;
+    }
+    var seatID = res.get('row') + res.get('column');
+// need session to work to make this work.
+  },
+
+  seatClick: function (event) {
+    var $seat = $(event.target);
+    if ($seat.hasClass('taken')){
+      alert("this seat is already taken.");
+    } else if ($seat.hasClass('pending')) {
+      alert("internet magic in process - wait.")
+    } else {
+      $seat.addClass('pending');
+      var row = parseInt($seat[0].id);
+      var column = $seat[0].id.slice(-1);
+      console.log(row, column);
+      // need login to work for this to work
+    }
   }
+
+
+
+
+
 });
