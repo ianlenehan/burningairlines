@@ -7,43 +7,39 @@
     <button id="search_cancel">Cancel</button>
     <button id="search_save">Search</button>
 
+</script>
 
-    <table id="flights_list">
-      <tr>
-        <th>Date</th>
-        <th>Flight</th>
-        <th>From - To</th>
-        <th>Plane</th>
-      </tr>
-      <tr class="flights_list_data">
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
+  <script type="text/template">
+
+  <table id="flights_list">
+    <thead>
+    <tr>
+      <th>Date</th>
+      <th>Flight</th>
+      <th>From - To</th>
+      <th>Plane</th>
+    </tr>
+    </thead>
+    <tr class="flights_list_data">
+      <td><%= flight.origin %></td>
+      <td><%= flight.destination %></td>
+      <td><%= flight.date %></td>
+      <td><%= flight.plane.name if flight.plane %></td>
+    </tr>
+  </table>
   </script>
 
   <script id="flightViewTemplate" type="text/template">
 
-    <button></button>
-
-    <dl>
-      <dt>origin:</dt>
-      <dd><%%= origin %></dd>
-
-      <dt>destination:</dt>
-      <dd><%%= destination %></dd>
-
-      <dt>date:</dt>
-      <dd><%%= date %></dd>
-
-      <dt>plane:</dt>
-      <dd id="planeDescription">
-      </dd>
-    </dl>
+    <ul>
+      <li><b>Origin: </b><%%= origin %> </li>
+      <li><b>Destination: </b><%%= destination %></li>
+      <li><b>Date: </b><%%= date %></li>
+      <li><b>Plane: </b> <span id="planeDescription"></li>
+    </ul>
 
     <div id="flightSeating"></div>
+
   </script>
 
   <script id="planeDescriptionTemplate" type="text/template">
