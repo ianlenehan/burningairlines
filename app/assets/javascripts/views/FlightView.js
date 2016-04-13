@@ -1,4 +1,4 @@
-var app = app || {}
+var app = app || {};
 
 app.FlightView = Backbone.View.extend({
 
@@ -15,6 +15,6 @@ app.FlightView = Backbone.View.extend({
       var planeDescriptionTemplate = _.template($('#planeDescriptionTemplate').text());
       var planeDescription = planeDescriptionTemplate(this.model.plane.attributes);
       this.$el.find('#planeDescription').text(planeDescription);
-    })
+    });
   }
-})
+});
