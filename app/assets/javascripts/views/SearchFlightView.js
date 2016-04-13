@@ -14,6 +14,8 @@ app.SearchFlightView = Backbone.View.extend({
 
     var flights = new app.Flights();
 
+    // $('tbody').empty();
+
     var view = this;
     var params = {
       origin : origin,
