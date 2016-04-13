@@ -1,6 +1,13 @@
   <div id="main"></div>
 
   <script id="searchFlightTemplate" type="text/template">
+    <h2>Search Flights</h2>
+    <ul class="searchFlight">
+      <li><b>Origin:  </b><input type="text" placeholder="from" id="origin"></li>
+      <li><b>Destination:  </b><input type="text" placeholder="to" id="destination"></li>
+      <button id="search_cancel">Cancel</button>
+      <button id="search_save">Search</button>
+    </ul>
 
     <label>Origin: </label><input type="text" placeholder="from" id="origin">
     <label>Destination: </label><input type="text" placeholder="to" id="destination">
@@ -26,22 +33,16 @@
 
 </script>
 
-  <script type="text/template">
-
-
-  </script>
 
   <script id="flightViewTemplate" type="text/template">
-
-    <ul>
-      <li><b>Origin: </b><%%= origin %> </li>
-      <li><b>Destination: </b><%%= destination %></li>
-      <li><b>Date: </b><%%= date %></li>
-      <li><b>Plane: </b> <span id="planeDescription"></li>
-    </ul>
-
-    <div id="flightSeating"></div>
-
+      <h2>Search Results</h2>
+      <ul>
+        <li><b>Origin: </b><%%= origin %> </li>
+        <li><b>Destination: </b><%%= destination %></li>
+        <li><b>Date: </b><%%= date %></li>
+        <li><b>Plane: </b> <span id="planeDescription"></li>
+      </ul>
+      <div id="flightSeating"></div>
   </script>
 
   <script id="planeDescriptionTemplate" type="text/template">
