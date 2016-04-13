@@ -1,4 +1,5 @@
 var app = app || {}
+app.alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
 
 app.FlightView = Backbone.View.extend({
 
@@ -18,8 +19,36 @@ app.FlightView = Backbone.View.extend({
     });
 
     app.reservations = new app.Reservations();
-    app.reservations.fetch();
-    app.reservations.where({flight_id: this.model.id});
-    console.log(app.reservations);
+    app.reservations.fetch().done(function () {
+      app.reservations = app.reservations.where({flight_id: flightAttr.id});
+
+      console.log(app.reservations);
+
+      var columns = flightAttr.plane.columns;
+      var rows = flightAttr.plane.rows;
+
+      var seatingDiv = $('#flightSeating');
+
+      var seatingDivWidth = seatingDiv.width();
+      var seatWidth = Math.floor((seatingDivWidth*9)/(10*columns));
+      var seatMargin = Math.floor((seatingDivWidth - seatWidth*columns)/(2*columns));
+
+      var columnNames = app.alphabet.slice(0, columns);
+
+      for (var i = 0; i < rows; i++) {
+        for (var j = 0; j < columns; j++) {
+          var seatID = (i+1)+app.alphabet[j];
+          var seat = $('<div/>')
+            .addClass("seat")
+            .attr('id', seatID)
+            .css({width: seatWidth+"px",
+              margin: seatMargin+"px",
+              height: Math.floor(seatWidth/2)+"px",
+              'line-height': Math.floor(seatWidth/2)+"px"})
+            .text(seatID);
+          seatingDiv.append(seat);
+        }
+      }
+    });
   }
 })
