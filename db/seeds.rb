@@ -1,10 +1,10 @@
 
-# User.destroy_all
-# u1 = User.create :name => 'Carmen', :email => 'carmen@ga.com', :password => 'chicken', :password_confirmation => 'chicken'
-# u2 = User.create :name => 'Ian', :email => 'ian@ga.com', :password => 'chicken', :password_confirmation => 'chicken'
-# u3 = User.create :name => 'Bill', :email => 'bill@ga.com', :password => 'chicken', :password_confirmation => 'chicken'
-# u4 = User.create :name => 'Joel', :email => 'joel@ga.com', :password => 'chicken', :password_confirmation => 'chicken'
-# u5 = User.create :name => 'Jack', :email => 'jack@ga.com', :password => 'chicken', :password_confirmation => 'chicken'
+User.destroy_all
+u1 = User.create :name => 'Carmen', :email => 'carmen@ga.com', :password => 'chicken', :password_confirmation => 'chicken'
+u2 = User.create :name => 'Ian', :email => 'ian@ga.com', :password => 'chicken', :password_confirmation => 'chicken'
+u3 = User.create :name => 'Bill', :email => 'bill@ga.com', :password => 'chicken', :password_confirmation => 'chicken'
+u4 = User.create :name => 'Joel', :email => 'joel@ga.com', :password => 'chicken', :password_confirmation => 'chicken'
+u5 = User.create :name => 'Jack', :email => 'jack@ga.com', :password => 'chicken', :password_confirmation => 'chicken'
 
 
 Reservation.destroy_all
