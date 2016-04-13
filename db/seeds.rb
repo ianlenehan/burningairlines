@@ -7,23 +7,54 @@ u4 = User.create :name => 'Joel', :email => 'joel@ga.com', :password => 'chicken
 u5 = User.create :name => 'Jack', :email => 'jack@ga.com', :password => 'chicken', :password_confirmation => 'chicken'
 
 
-Reservation.destroy_all
-p1 = Reservation.create :flight_id => 1, :row => 10, :column => "C"
-p2 = Reservation.create :flight_id => 1, :row => 3, :column => "B"
-p3 = Reservation.create :flight_id => 2, :row => 15, :column => "A"
-p4 = Reservation.create :flight_id => 2, :row => 20, :column => "D"
-p5 = Reservation.create :flight_id => 3, :row => 5, :column => "A"
-p6 = Reservation.create :flight_id => 3, :row => 5, :column => "B"
-
 Plane.destroy_all
-r1 = Plane.create :name => "747", :rows => 74, :columns => 7
-r2 = Plane.create :name => "757", :rows => 75, :columns => 7
-r3 = Plane.create :name => "Airbus380", :rows => 80, :columns => 8
-r4 = Plane.create :name => "Boeing747", :rows => 47, :columns => 8
-r5 = Plane.create :name => "Boeing767", :rows => 67, :columns => 6
-r6 = Plane.create :name => "BICJet", :rows => 10, :columns => 4
+
+plane_names = ["747", "757", "Airbus380", "Boeing747", "Boeing767", "BICJet"]
+
+(1..10).to_a.each do |i|
+  Plane.create({
+    :name => "#{plane_names.sample}-#{i}",
+    :rows => (10..100).to_a.sample,
+    :columns => (4..10).to_a.sample
+  })
+end
+
+locations = ["SYD", "JFK", "MEL", "BRI", "PER", "ADL"]
+dates = ["2016-04-18T12:00:00.000Z",
+  "2016-04-19T12:00:00.000Z",
+  "2016-04-20T12:00:00.000Z",
+  "2016-04-21T12:00:00.000Z",
+  "2016-04-22T12:00:00.000Z"]
 
 Flight.destroy_all
-f1 = Flight.create :origin => 'SYD', :destination => 'JFK', :date => 2016/04/13, :plane_id => 1
-f2 = Flight.create :origin => 'JFK', :destination => 'SYD', :date => 2016/04/14, :plane_id => 2
-f3 = Flight.create :origin => 'BRI', :destination => 'MEL', :date => 2016/04/15, :plane_id => 3
+
+(1..20).to_a.each do |i|
+  blah = locations.sample(2)
+  Flight.create :origin => blah[0], :destination => blah[1], :date => dates.sample, :plane_id => Plane.all.pluck(:id).sample
+end
+
+Reservation.destroy_all
+
+@column_names = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".chars
+
+def plane_seats plane
+  rows = (1..plane.rows).to_a
+  columns = @column_names.take plane.columns
+  rows.product(columns) # .map {|rc| "#{rc[0]}-#{rc[1]}"}
+end
+
+
+flights = Flight.all
+all_seats = []
+flights.each do |f|
+  all_seats += plane_seats(f.plane).map {|rc| {:flight_id => f.id, :row => rc[0], :column => rc[1]}}
+end
+
+number_of_reservations_to_create = ((all_seats.size/3)..(2*all_seats.size/3)).to_a.sample
+
+reserved_seats = all_seats.sample number_of_reservations_to_create
+
+reserved_seats.each do |seat|
+  seat[:user_id] = User.all.pluck(:id)
+  Reservation.create seat
+end

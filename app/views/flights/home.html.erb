@@ -9,6 +9,7 @@
       <button id="search_save">Search</button>
     </ul>
 
+<<<<<<< HEAD
     <div id="flights_list">
       <ul class="flights_list_info">
         <li>Date</li>
@@ -23,6 +24,33 @@
         <li></li>
       </ul>
     </div>
+=======
+    <label>Origin: </label><input type="text" placeholder="from" id="origin">
+    <label>Destination: </label><input type="text" placeholder="to" id="destination">
+    <button id="search_cancel">Cancel</button>
+    <button id="search_save">Search</button>
+
+</script>
+
+  <script type="text/template">
+
+  <table id="flights_list">
+    <thead>
+    <tr>
+      <th>Date</th>
+      <th>Flight</th>
+      <th>From - To</th>
+      <th>Plane</th>
+    </tr>
+    </thead>
+    <tr class="flights_list_data">
+      <td><%= flight.origin %></td>
+      <td><%= flight.destination %></td>
+      <td><%= flight.date %></td>
+      <td><%= flight.plane.name if flight.plane %></td>
+    </tr>
+  </table>
+>>>>>>> 51fc5dd932a52e2159b72634778b50750bd9115e
   </script>
 
   <script id="flightViewTemplate" type="text/template">
