@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find params[:id]
   end
 
   # GET /users/new
@@ -19,12 +20,13 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = @current_user
   end
 
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    @user = User.create user_params
 
     respond_to do |format|
       if @user.save
@@ -36,6 +38,7 @@ class UsersController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
@@ -71,4 +74,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :password, :email, :password_confirmation)
     end
+
 end

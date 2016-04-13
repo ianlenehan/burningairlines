@@ -15,39 +15,43 @@ app.SearchFlightView = Backbone.View.extend({
     var flights = new app.Flights();
 
     var view = this;
-    flights.fetch({data: {origin: origin, destination: destination}}).done(function () {
+    var params = {
+      origin : origin,
+      destination : destination
+    };
 
-      for (var i = 0; i < flights.length; i++) {
-        var $origin = view.$el.find('#flight_origin');
-        var returned_origin = flights.at( i ).get( "origin" );
-        $origin.html(flights.at( i ).get( "origin" ));
-        console.log(returned_origin);
+    flights.fetch().done(function () {
+
+      var matchingFlights = flights.where({
+        origin : origin,
+        destination : destination
+      });
+
+      console.log(matchingFlights);
+      for (var i = 0; i < matchingFlights.length; i++) {
+        var rowID = ("results_row_" + i);
+        // $('#flights_list').append('<tr id="test"></tr>');
+        $('#flights_list').append('<tr id="' + rowID + '"></tr');
+        var origin_result = matchingFlights[i].attributes.origin;
+        var destination_result = matchingFlights[i].attributes.destination;
+        var date_result = matchingFlights[i].attributes.date;
+        var plane_result = matchingFlights[i].attributes.plane_id;
+        // $('#' + rowID).append('<td>TEST</td>');
+        $('#' + rowID).append('<td>' + origin_result + '</td>');
+        $('#' + rowID).append('<td>' + destination_result + '</td>');
+        $('#' + rowID).append('<td>' + date_result + '</td>');
+        $('#' + rowID).append('<td>' + plane_result + '</td>');
+        // $destination.append(matchingFlights[i].attributes.destination);
+        // $date.append(matchingFlights[i].attributes.date);
+        // $plane.append(matchingFlights[i].attributes.plane_id);
       }
     });
   },
 
-  render: function (flights) {
+  render: function () {
     var htmlTemplate = $("#searchFlightTemplate").html();
     this.$el.html( htmlTemplate );
-
-    // var origin = this.$el.find('#origin').val();
-    // var destination = this.$el.find('#destination').val();
-    //
-    // var flights = new app.Flights({ origin : origin, destination : destination });
-    //
-    // var view = this;
-    // flights.fetch().done(function () {
-    //
-    //   for (var i = 0; i < flights.length; i++) {
-    //     var $origin = view.$el.find('#flight_origin');
-    //     var returned_origin = flights.at( 0 ).get( "origin" );
-    //     $origin.html(flights.at( 0 ).get( "origin" ));
-    //     console.log(returned_origin);
-    //
-    //   }
-
-      this.$el.appendTo("#main");
-    // });
+    this.$el.appendTo("#main");
   }
 
 });

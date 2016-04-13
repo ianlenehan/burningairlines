@@ -19,6 +19,11 @@
 
 </head>
 <body>
+  <div style="position: fixed; z-index: -99; width: 110%; height: 110%">
+    <iframe margin="0" frameborder="0" height="100%" width="100%"
+      src="https://www.youtube.com/embed/AzEiglyVBYE?rel=0&amp;controls=0&amp;showinfo=0?rel=0&autoplay=1">
+    </iframe>
+  </div>
 <div class="container">
   <nav class="navbar navbar-default">
       <ul class="nav navbar-nav navbar-left">
@@ -32,13 +37,17 @@
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Your Flight</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Profile</a></li>
-        </ul>
-      </div>
+      <% if @current_user.present? %>
+        <li class="navlinks"><%= link_to "Logout #{@current_user.name}", login_path, :method => :delete %></li>
+        <li class="navlinks"><%= link_to "Edit Profile", edit_user_path(@current_user) %></li>
+      <% else %>
+        <li class="nav navbar-nav navbar-right"><%= link_to "Sign up", signup_path %></li>
+        <li class="nav navbar-nav navbar-right"><%= link_to "Login", login_path %></li>
+      <% end %>
+    </ul>
+  </div>
   </nav>
+
   <div id="content">
     <%= yield %>
   </div>
