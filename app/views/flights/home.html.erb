@@ -26,24 +26,15 @@
 
   <script id="flightViewTemplate" type="text/template">
 
-    <button></button>
-
-    <dl>
-      <dt>origin:</dt>
-      <dd><%%= origin %></dd>
-
-      <dt>destination:</dt>
-      <dd><%%= destination %></dd>
-
-      <dt>date:</dt>
-      <dd><%%= date %></dd>
-
-      <dt>plane:</dt>
-      <dd id="planeDescription">
-      </dd>
-    </dl>
+    <ul>
+      <li><b>Origin: </b><%%= origin %> </li>
+      <li><b>Destination: </b><%%= destination %></li>
+      <li><b>Date: </b><%%= date %></li>
+      <li><b>Plane: </b> <span id="planeDescription"></li>
+    </ul>
 
     <div id="flightSeating"></div>
+
   </script>
 
   <script id="planeDescriptionTemplate" type="text/template">
