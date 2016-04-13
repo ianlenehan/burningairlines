@@ -15,6 +15,11 @@ app.FlightView = Backbone.View.extend({
       var planeDescriptionTemplate = _.template($('#planeDescriptionTemplate').text());
       var planeDescription = planeDescriptionTemplate(this.model.plane.attributes);
       this.$el.find('#planeDescription').text(planeDescription);
-    })
+    });
+
+    app.reservations = new app.Reservations();
+    app.reservations.fetch();
+    app.reservations.where({flight_id: this.model.id});
+    console.log(app.reservations);
   }
 })
