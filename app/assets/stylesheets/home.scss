@@ -116,6 +116,7 @@ button#search_save, button#search_cancel{
 th td {
   min-width: 50px;
   padding: 5px;
+}
 /////////////////////////////////////////////////////////////////
 //single flight view stuff
 
@@ -134,4 +135,9 @@ th td {
   border: 1px solid green;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+}
+
+.seat.taken {
+  border: 1px solid red;
+  background-color: indianred;
 }

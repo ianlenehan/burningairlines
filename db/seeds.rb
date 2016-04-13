@@ -11,7 +11,7 @@ Plane.destroy_all
 
 plane_names = ["747", "757", "Airbus380", "Boeing747", "Boeing767", "BICJet"]
 
-(1..10).to_a.each do |i|
+(1..20).to_a.each do |i|
   Plane.create({
     :name => "#{plane_names.sample}-#{i}",
     :rows => (10..100).to_a.sample,
@@ -28,7 +28,7 @@ dates = ["2016-04-18T12:00:00.000Z",
 
 Flight.destroy_all
 
-(1..20).to_a.each do |i|
+(1..60).to_a.each do |i|
   blah = locations.sample(2)
   Flight.create :origin => blah[0], :destination => blah[1], :date => dates.sample, :plane_id => Plane.all.pluck(:id).sample
 end
@@ -55,6 +55,6 @@ number_of_reservations_to_create = ((all_seats.size/3)..(2*all_seats.size/3)).to
 reserved_seats = all_seats.sample number_of_reservations_to_create
 
 reserved_seats.each do |seat|
-  seat[:user_id] = User.all.pluck(:id)
+  seat["user_id"] = User.all.pluck(:id).sample
   Reservation.create seat
 end
