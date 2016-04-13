@@ -7,26 +7,28 @@
     <button id="search_cancel">Cancel</button>
     <button id="search_save">Search</button>
 
+    <table id="flights_list">
+      <thead>
+      <tr>
+        <th>Date</th>
+        <th>Flight</th>
+        <th>From - To</th>
+        <th>Plane</th>
+      </tr>
+      </thead>
+      <tr class="flights_list_data">
+        <td id='flight_origin'></td>
+        <td id='flight_destination'></td>
+        <td id='flight_date'></td>
+        <td id='flight_plane'></td>
+      </tr>
+    </table>
+
 </script>
 
   <script type="text/template">
 
-  <table id="flights_list">
-    <thead>
-    <tr>
-      <th>Date</th>
-      <th>Flight</th>
-      <th>From - To</th>
-      <th>Plane</th>
-    </tr>
-    </thead>
-    <tr class="flights_list_data">
-      <td><%= flight.origin %></td>
-      <td><%= flight.destination %></td>
-      <td><%= flight.date %></td>
-      <td><%= flight.plane.name if flight.plane %></td>
-    </tr>
-  </table>
+
   </script>
 
   <script id="flightViewTemplate" type="text/template">

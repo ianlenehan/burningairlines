@@ -4,9 +4,11 @@ app.AppView = Backbone.View.extend({
   el: '#main',
 
   render: function () {
+    var searchView = new app.SearchFlightView();
+    searchView.render();
 
-    var searchFlightTemplate = $('#searchFlightTemplate').html();
-    this.$el.html(searchFlightTemplate);
+    // var searchFlightTemplate = $('#searchFlightTemplate').html();
+    // this.$el.html(searchFlightTemplate);
 
     // var flightView = new app.FlightView();
     // flightView.render();

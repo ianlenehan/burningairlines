@@ -24,6 +24,6 @@ r5 = Plane.create :name => "Boeing767", :rows => 67, :columns => 6
 r6 = Plane.create :name => "BICJet", :rows => 10, :columns => 4
 
 Flight.destroy_all
-f1 = Flight.create :origin => 'SYD', :destination => 'JFK', :date => 2016/04/13, :plane_id => 1
-f2 = Flight.create :origin => 'JFK', :destination => 'SYD', :date => 2016/04/14, :plane_id => 2
-f3 = Flight.create :origin => 'BRI', :destination => 'MEL', :date => 2016/04/15, :plane_id => 3
+f1 = Flight.create :origin => 'SYD', :destination => 'JFK', :date => 2016/04/13, :plane_id => r1.id
+f2 = Flight.create :origin => 'JFK', :destination => 'SYD', :date => 2016/04/14, :plane_id => r2.id
+f3 = Flight.create :origin => 'BRI', :destination => 'MEL', :date => 2016/04/15, :plane_id => r3.id
