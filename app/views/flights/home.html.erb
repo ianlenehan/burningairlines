@@ -2,16 +2,13 @@
   <h1>home page</h1>
   <div id="main"></div>
 
-<h1>Home Page</h1>
-
   <script id="searchFlightTemplate" type="text/template">
 
-    <div id="from"></div>
-    <div id="to"></div>
-    <button id="cancel"></button>
-    <button id="save"></button>
+    <label>Origin: </label><input type="text" placeholder="from" id="origin">
+    <label>Destination: </label><input type="text" placeholder="to" id="destination">
+    <button id="search_cancel">Cancel</button>
+    <button id="search_save">Search</button>
 
-    <button id="searchFlights">Search</button>
   </script>
 
   <script id="flightViewTemplate" type="text/template">
