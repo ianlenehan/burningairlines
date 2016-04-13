@@ -17,7 +17,7 @@ app.SeatingView = Backbone.View.extend({
 
     setInterval(function () {
       app.reservations.fetch();
-    })
+    }, 1000);
 
     this.listenTo( app.reservations, 'add', this.reservationAddEvent);
     this.listenTo( app.reservations, 'remove', this.reservationRemoveEvent);
