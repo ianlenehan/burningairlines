@@ -26,28 +26,32 @@
   </div>
 <div class="container">
   <nav class="navbar navbar-default">
-      <ul class="nav navbar-nav navbar-left">
-        <a href="/"><h3><span class="fontWeight-light">Burning</span> Airlines</h3></a>
-      </ul>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <form class="navbar-form navbar-right" role="search">
-          <div class="form-group">
-            <input type="text" class="searchFlightById form-control" placeholder="Search Flights">
-          </div>
-          <button type="submit" id="navSearch" class="btn btn-default">Submit</button>
-        </form>
-        <ul class="nav navbar-nav navbar-right">
-      <% if @current_user.present? %>
-        <li class="navlinks"><%= link_to "Logout #{@current_user.name}", login_path, :method => :delete %></li>
-        <li class="navlinks"><%= link_to "Find Flights", search_path %></li>
-      <% else %>
-        <li class="nav navbar-nav navbar-right"><%= link_to "Sign up", signup_path %></li>
-        <li class="nav navbar-nav navbar-right"><%= link_to "Login", login_path %></li>
-      <% end %>
+    <ul class="nav navbar-nav navbar-left">
+      <a href="/"><h3><span class="fontWeight-light">Burning</span> Airlines</h3></a>
     </ul>
-  </div>
-  </nav>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="searchFlightById form-control" placeholder="Search Flights">
+        </div>
+        <button type="submit" id="navSearch" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <% if @current_user.present? && @current_user.admin == true %>
+          <li class="nav navbar-nav navbar-right"><%= link_to "All flights", flights_path %></li>
+        <% end %>
+        <% if @current_user.present? %>
+          <li class="nav navbar-nav navbar-right"><%= link_to "Profile", user_path(@current_user) %></li>
+          <li class="navlinks"><%= link_to "Logout #{@current_user.name}", login_path, :method => :delete %></li>
+          <li class="navlinks"><%= link_to "Find Flights", search_path %></li>
 
+        <% else %>
+          <li class="nav navbar-nav navbar-right"><%= link_to "Sign up", signup_path %></li>
+          <li class="nav navbar-nav navbar-right"><%= link_to "Login", login_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
   <div id="content">
     <%= yield %>
   </div>

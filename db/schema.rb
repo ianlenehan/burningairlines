@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412054414) do
+ActiveRecord::Schema.define(version: 20160414034455) do
 
   create_table "flights", force: :cascade do |t|
     t.string   "origin"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160412054414) do
   end
 
   create_table "planes", force: :cascade do |t|
+    t.integer  "plane_id"
     t.string   "name"
     t.integer  "rows"
     t.integer  "columns"
@@ -43,8 +44,9 @@ ActiveRecord::Schema.define(version: 20160412054414) do
     t.string   "name"
     t.string   "password_digest"
     t.string   "email"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "admin",           default: false
   end
 
 end

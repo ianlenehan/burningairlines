@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_filter :authorise, :only => [:index]
+
 
   # GET /users
   # GET /users.json
@@ -75,5 +77,9 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :password, :email, :password_confirmation)
     end
+
+  def authorise
+    redirect_to root_path unless (@current_user.present? && @current_user.admin?)
+  end
 
 end
