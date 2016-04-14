@@ -13,6 +13,10 @@ class SessionController < ApplicationController
     end
   end
 
+  def show
+    render :plain => @current_user.id
+  end
+
   def destroy
     session[:user_id] = nil
     redirect_to root_path
