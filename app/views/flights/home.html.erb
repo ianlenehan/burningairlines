@@ -27,11 +27,6 @@
 
   <script id="flightViewTemplate" type="text/template">
       <h2>Search Results</h2>
-      <div class="floatRight">
-        <div class="seat seatExample mine">Selected</div>
-        <div class="seat seatExample">Free</div>
-        <div class="seat taken seatExample">Occupied</div>
-      </div>
       <ul>
         <li><b>Origin: </b><%%= origin %> </li>
         <li><b>Destination: </b><%%= destination %></li>
@@ -39,6 +34,11 @@
         <li><b>Flight Number: </b> <%%= id  %> </li>
         <li><b>Plane: </b> <span id="planeDescription"></li>
       </ul>
+      <div class="seatingkey floatRight">
+        <div class="seat seatExample mine">Selected</div>
+        <div class="seat seatExample">Free</div>
+        <div class="seat taken seatExample">Occupied</div>
+      </div>
       <div id="flightSeating"></div>
   </script>
 

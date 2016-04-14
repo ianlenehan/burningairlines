@@ -39,6 +39,7 @@ nav {
 
 .navbar-left h3{
   font-weight: bold;
+  margin: 12px 0 12px 20px;
 }
 
 nav h3 {
@@ -56,7 +57,7 @@ nav h3 {
   margin-top: 5px;
 }
 
-#main, .signup_login{
+#main, .signup_login, .main2{
   width: 60%;
   margin: 0 auto;
   padding: 5%;
@@ -67,7 +68,7 @@ nav h3 {
 
 .signup_login{
 box-sizing: border-box;
-padding-left: 23%;
+padding-left: 20%;
 }
 
 #main h2{
@@ -96,6 +97,7 @@ ul {
 
 label {
   display: block;
+  min-width: 65px;
 }
 .searchFlight{
   margin: 0 auto;
@@ -170,6 +172,10 @@ td {
   min-height: 100px;
   max-height: 300px;
   overflow: scroll;
+  border-radius: 5px;
+  box-shadow: 0 0 10px black;
+  background-color: white;
+  margin-top: 1em;
 }
 
 .seat {
@@ -195,7 +201,8 @@ td {
 }
 
 .seat.mine {
-  border:1px solid blue;
+  box-sizing: border-box;
+  background-color: lightblue;
 }
 
 .seatExample{
@@ -208,4 +215,8 @@ td {
 
 .floatRight{
   text-align: right;
+}
+
+.seatingkey {
+  height:30px;
 }

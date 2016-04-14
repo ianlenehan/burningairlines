@@ -1,5 +1,7 @@
 class FlightsController < ApplicationController
   before_action :set_flight, only: [:show, :edit, :update, :destroy]
+  before_action :authorise, :only => [:index]
+
 
   # GET /flights
   # GET /flights.json
@@ -71,4 +73,9 @@ class FlightsController < ApplicationController
     def flight_params
       params.require(:flight).permit(:origin, :destination, :date, :plane_id)
     end
+
+    def authorise
+      redirect_to root_path unless (@current_user.present? && @current_user.admin?)
+    end
+
 end

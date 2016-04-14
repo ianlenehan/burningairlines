@@ -126,7 +126,6 @@ app.SeatingView = Backbone.View.extend({
           $seat.addClass('taken')
             .removeClass('pending');
         });
-        console.log(res);
       }
     }
   }
