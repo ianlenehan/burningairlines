@@ -22,16 +22,10 @@ app.SearchFlightView = Backbone.View.extend({
     var destination = this.$el.find('#destination').val().toUpperCase();
 
     var flights = new app.Flights();
-
     $('#flights_list').css({"opacity" : "1"} );
     $('tbody').empty();
 
     var view = this;
-    var params = {
-      origin : origin,
-      destination : destination
-    };
-
     flights.fetch().done(function () {
       var matchingFlights = flights.where({
         origin : origin,
