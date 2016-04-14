@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<div id="user_main">
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
@@ -15,5 +15,14 @@
   <%= @user.email %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<hr>
+
+<h2><u>Reservations</u></h2>
+<% @reservations.each do |reservation| %>
+<ul>
+  <% flight = Flight.where(id: reservation.flight_id ).first %>
+  <a href="/search#flights/<%= reservation.flight_id %>"><li><strong>Flight ID:</strong> <%= reservation.flight_id %> | <%= flight.origin %> to <%= flight.destination %> | <strong>Seat:</strong> <%= reservation.row %><%= reservation.column %> | <strong>Date:</strong> <%= flight.date.strftime '%a %B %y, %k:%M' %></li></a>
+</ul>
+<% end %>
+
+</div>
