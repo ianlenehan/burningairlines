@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   delete '/login' => 'session#destroy'
 
   get '/currentuser' => 'session#show'
+  get '/flightreservations' => 'reservations#flight'
 
 end

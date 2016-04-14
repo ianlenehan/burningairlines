@@ -8,7 +8,6 @@ app.FlightView = Backbone.View.extend({
     app.flight = this.model;
     var flightTemplate = _.template($('#flightViewTemplate').text());
     var flightAttr = this.model.attributes;
-    flightAttr.plane = this.model.plane.attributes;
 
     this.$el.html( flightTemplate(flightAttr) );
 
