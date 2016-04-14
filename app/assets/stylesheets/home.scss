@@ -158,6 +158,10 @@ td {
   min-height: 100px;
   max-height: 300px;
   overflow: scroll;
+  border-radius: 5px;
+  box-shadow: 0 0 10px black;
+  background-color: white;
+  margin-top: 1em;
 }
 
 .seat {
@@ -199,6 +203,6 @@ td {
   text-align: right;
 }
 
-.navbar-nav>li>a {
-    padding-top: 22px;
+.seatingkey {
+  height:30px;
 }
