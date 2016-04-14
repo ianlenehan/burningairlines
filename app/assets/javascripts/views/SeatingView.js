@@ -97,14 +97,16 @@ app.SeatingView = Backbone.View.extend({
 
       if ($seat.hasClass('mine')) {
         if (confirm("Do you want to delete your reservation?")){
-          _.map(app.reservations.where({
+          var your_res = app.reservations.where({
               row: parseInt($seat[0].id),
               column: $seat[0].id.slice(-1),
               user_id: app.currentuser,
               flight_id: app.flight.get('id')
-          }), function (res) {
-            res.destroy();
-          });
+          })[0];
+
+          your_res.destroy();
+
+          app.reservations.remove(your_res);
         }
       } else {
         var res = new app.Reservation({
@@ -117,8 +119,12 @@ app.SeatingView = Backbone.View.extend({
         $seat.addClass('pending');
         res.save().success( function () {
           $seat.removeClass('pending')
-            .addClass('mine');
-        }); ////// validation weirdness
+          app.reservations.add(res);
+        }).error( function () {
+          alert("seems like that seat is already taken.")
+          $seat.addClass('taken')
+            .removeClass('pending');
+        });
         console.log(res);
       }
     }
