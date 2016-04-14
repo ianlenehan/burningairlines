@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require underscore.js
 //= require backbone.js
+//= require bootstrap-sprockets
 //= require moment.js
 //= require_tree ./models
 //= require_tree ./collections
