@@ -1,5 +1,5 @@
-var app = app || {};
-
-app.UserSession = Backbone.Model.extend({
-  urlRoot: "/session"
-});
+// var app = app || {};
+//
+// app.Session = Backbone.Model.extend({
+//   urlRoot: "/session",
+// });
