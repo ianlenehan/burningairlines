@@ -24,7 +24,6 @@ app.SearchFlightView = Backbone.View.extend({
     var flights = new app.Flights();
 
     $('#flights_list').css({"opacity" : "1"} );
-
     $('tbody').empty();
 
     var view = this;
@@ -34,7 +33,6 @@ app.SearchFlightView = Backbone.View.extend({
     };
 
     flights.fetch().done(function () {
-
       var matchingFlights = flights.where({
         origin : origin,
         destination : destination
@@ -47,7 +45,6 @@ app.SearchFlightView = Backbone.View.extend({
           var plane_result = matchingFlights[i].attributes.plane_id;
           var flight_result = matchingFlights[i].attributes.id;
           var rowID = 'result_row_' + flight_result;
-          console.log(rowID);
           $('#flights_list').append('<tr class="result_row" id="result_row_' + flight_result + '" data-id="' + flight_result + '"></tr>');
           $('#' + rowID).append('<td>' + flight_result + '</td>');
           $('#' + rowID).append('<td>' + origin_result + '</td>');
