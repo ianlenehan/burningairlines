@@ -164,14 +164,17 @@ td {
 }
 
 #complete-reservation {
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 8px 8px;
   background-color: white;
-  border: none;
+  border: 1px solid green;
   min-height: 30px;
+  margin-top: 6px;
+  margin-left: 3px;
 }
 
 #complete-reservation:hover {
   background-color: lightblue;
+  border: 1px solid green;
 }
 
 
@@ -200,6 +203,7 @@ td {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   box-sizing: border-box;
+  background-color: white;
 }
 
 .seat.taken {
