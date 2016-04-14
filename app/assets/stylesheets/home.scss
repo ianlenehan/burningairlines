@@ -181,7 +181,8 @@ td {
 }
 
 .seat.mine {
-  border:1px solid blue;
+  box-sizing: border-box;
+  background-color: lightblue;
 }
 
 .seatExample{
