@@ -4,6 +4,20 @@ app.FlightView = Backbone.View.extend({
 
   el: '#main',
 
+  events: {
+    'click #complete-reservation' : 'viewProfile'
+  },
+
+  viewProfile: function (e) {
+    e.preventDefault();
+    $.get('/currentuser').done(function (e) {
+      app.currentuser = parseInt(e);
+    });
+
+    app.newURL = 'users/' + app.currentuser;
+    window.location = app.newURL;
+  },
+
   render: function () {
     app.flight = this.model;
     var flightTemplate = _.template($('#flightViewTemplate').text());

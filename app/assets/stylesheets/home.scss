@@ -163,6 +163,17 @@ td {
   font-size: 18px;
 }
 
+#complete-reservation {
+  border-radius: 0 0 5px 5px;
+  background-color: white;
+  border: none;
+  min-height: 30px;
+}
+
+#complete-reservation:hover {
+  background-color: lightblue;
+}
+
 
 /////////////////////////////////////////////////////////////////
 //single flight view stuff
@@ -172,8 +183,8 @@ td {
   min-height: 100px;
   max-height: 300px;
   overflow: scroll;
-  border-radius: 5px;
-  box-shadow: 0 0 10px black;
+  border-radius: 5px 5px 5px 0;
+  // box-shadow: 0 0 10px black;
   background-color: white;
   margin-top: 1em;
 }
