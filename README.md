@@ -13,6 +13,8 @@ The requirements for this project were as follows:
 * A user can select a seat. COMPLETE
 * When a seat is saved, the available seats on the /flights page should update. COMPLETE
 
+Server side reservation conflicts, and client/server race conditions involving reservations, were avoided by having a validator in `app/models/reservation.rb`.
+
 ## Burning Airlines Crew
 
 * Bill
