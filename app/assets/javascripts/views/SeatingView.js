@@ -1,4 +1,5 @@
-var app = app || {}
+var app = app || {};
+
 app.alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
 
 app.SeatingView = Backbone.View.extend({
@@ -18,9 +19,9 @@ app.SeatingView = Backbone.View.extend({
       $('.seat').removeClass("pending");
     });
 
-    // setInterval(function () {
-    //   app.reservations.fetch();
-    // }, 1000);
+    setInterval(function () {
+      app.reservations.fetch();
+    }, 1000);
 
     this.listenTo( app.reservations, 'add', this.reservationAddEvent);
     this.listenTo( app.reservations, 'remove', this.reservationRemoveEvent);

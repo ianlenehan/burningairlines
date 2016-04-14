@@ -1,4 +1,4 @@
-var app = app || {}
+var app = app || {};
 
 app.FlightView = Backbone.View.extend({
 
@@ -8,6 +8,7 @@ app.FlightView = Backbone.View.extend({
     app.flight = this.model;
     var flightTemplate = _.template($('#flightViewTemplate').text());
     var flightAttr = this.model.attributes;
+    flightAttr.date = moment(flightAttr.date).format('MMMM Do YYYY, h:mma');
 
     this.$el.html( flightTemplate(flightAttr) );
 
