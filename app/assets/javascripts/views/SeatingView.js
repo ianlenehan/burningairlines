@@ -21,7 +21,7 @@ app.SeatingView = Backbone.View.extend({
 
     setInterval(function () {
       app.reservations.fetch();
-    }, 1000);
+    }, 50);
 
     this.listenTo( app.reservations, 'add', this.reservationAddEvent);
     this.listenTo( app.reservations, 'remove', this.reservationRemoveEvent);
@@ -126,7 +126,6 @@ app.SeatingView = Backbone.View.extend({
           $seat.addClass('taken')
             .removeClass('pending');
         });
-        console.log(res);
       }
     }
   }
