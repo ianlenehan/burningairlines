@@ -10,14 +10,17 @@ app.SeatingView = Backbone.View.extend({
   },
 
   render: function(){
+    $.get('/currentuser').done(function (blah) {
+      app.currentuser = parseInt(blah);
+    });
     app.reservations = new app.Reservations();
     app.reservations.fetch().done( function () {
       $('.seat').removeClass("pending");
     });
 
-    setInterval(function () {
-      app.reservations.fetch();
-    }, 1000);
+    // setInterval(function () {
+    //   app.reservations.fetch();
+    // }, 1000);
 
     this.listenTo( app.reservations, 'add', this.reservationAddEvent);
     this.listenTo( app.reservations, 'remove', this.reservationRemoveEvent);
@@ -55,7 +58,12 @@ app.SeatingView = Backbone.View.extend({
       return;
     }
     var seatID = res.get('row') + res.get('column');
-    $('#'+seatID).addClass('taken') //todo make it an if with session user_id.
+    $seat = $('#'+seatID);
+    if (res.get('user_id') === app.currentuser) {
+      $seat.addClass('mine');
+    } else {
+      $seat.addClass('taken');
+    }
   },
 
   reservationRemoveEvent: function (res) {
@@ -63,7 +71,8 @@ app.SeatingView = Backbone.View.extend({
       return;
     }
     var seatID = res.get('row') + res.get('column');
-    $('#'+seatID).removeClass('taken');
+    $('#'+seatID).removeClass('taken')
+      .removeClass('mine');
   },
 
   reservationUpdateEvent: function (res) {
@@ -71,7 +80,11 @@ app.SeatingView = Backbone.View.extend({
       return;
     }
     var seatID = res.get('row') + res.get('column');
-// need session to work to make this work.
+    if (res.get('user_id') === app.currentuser) {
+      $seat.addClass('mine');
+    } else {
+      $seat.addClass('taken');
+    }
   },
 
   seatClick: function (event) {
@@ -79,18 +92,41 @@ app.SeatingView = Backbone.View.extend({
     if ($seat.hasClass('taken')){
       alert("this seat is already taken.");
     } else if ($seat.hasClass('pending')) {
-      alert("internet magic in process - wait.")
+      alert("internet magic in process - wait.");
     } else {
-      $seat.addClass('pending');
-      var row = parseInt($seat[0].id);
-      var column = $seat[0].id.slice(-1);
-      console.log(row, column);
-      // need login to work for this to work
+
+      if ($seat.hasClass('mine')) {
+        if (confirm("Do you want to delete your reservation?")){
+          var your_res = app.reservations.where({
+              row: parseInt($seat[0].id),
+              column: $seat[0].id.slice(-1),
+              user_id: app.currentuser,
+              flight_id: app.flight.get('id')
+          })[0];
+
+          your_res.destroy();
+
+          app.reservations.remove(your_res);
+        }
+      } else {
+        var res = new app.Reservation({
+          row: parseInt($seat[0].id),
+          column: $seat[0].id.slice(-1),
+          user_id: app.currentuser,
+          flight_id: app.flight.get('id')
+        });
+
+        $seat.addClass('pending');
+        res.save().success( function () {
+          $seat.removeClass('pending')
+          app.reservations.add(res);
+        }).error( function () {
+          alert("seems like that seat is already taken.")
+          $seat.addClass('taken')
+            .removeClass('pending');
+        });
+        console.log(res);
+      }
     }
   }
-
-
-
-
-
 });

@@ -123,9 +123,24 @@ button#search_save, button#search_cancel{
   text-decoration: underline;
 }
 
+#flights_list{
+  width: 100%;
+  margin-left: 6%;
+  margin-top: 10%;
+}
+
+th {
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #87A7AC;
+}
+
 td {
   min-width: 50px;
-  padding: 5px;
+  padding: 0;
+  font-size: 1.1em;
+  padding-top: 5px;
 }
 
 /////////////////////////////////////////////////////////////////
@@ -158,4 +173,8 @@ td {
 .seat.pending {
   border:1px solid rebeccapurple;
   background-color: gray;
+}
+
+.seat.mine {
+  border:1px solid blue;
 }
