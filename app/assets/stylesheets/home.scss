@@ -166,12 +166,15 @@ td {
 #complete-reservation {
   border-radius: 0 0 5px 5px;
   background-color: white;
-  border: none;
+  border: 1px solid green;
   min-height: 30px;
+  margin-top: 7px;
+  margin-left: 3px;
 }
 
 #complete-reservation:hover {
   background-color: lightblue;
+  border: 1px solid green;
 }
 
 
