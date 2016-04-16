@@ -51,7 +51,7 @@ flights.each do |f|
   all_seats += plane_seats(f.plane).map {|rc| {:flight_id => f.id, :row => rc[0], :column => rc[1]}}
 end
 
-number_of_reservations_to_create = ((all_seats.size/3)..(2*all_seats.size/3)).to_a.sample
+number_of_reservations_to_create = all_seats.size/20
 
 reserved_seats = all_seats.sample number_of_reservations_to_create
 
