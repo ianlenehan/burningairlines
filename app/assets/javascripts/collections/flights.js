@@ -5,6 +5,6 @@ app.Flights = Backbone.Collection.extend({
   url:'/flights',
 
   comparator: function(m) {
-   return m.get('date');
-}
+    return m.get('date');
+  }
 });
